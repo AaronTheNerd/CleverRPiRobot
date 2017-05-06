@@ -12,7 +12,7 @@ import org.jointheleague.ecolban.rpirobot.SimpleIRobot;
 
 public class CleverRobot extends IRobotAdapter {
 	Sonar sonar = new Sonar();
-	
+
 	public CleverRobot(IRobotInterface iRobot) {
 		super(iRobot);
 	}
@@ -22,21 +22,19 @@ public class CleverRobot extends IRobotAdapter {
 		IRobotInterface base = new SimpleIRobot();
 		CleverRobot rob = new CleverRobot(base);
 		rob.setup();
-		while(rob.loop()){}
+		while (rob.loop()) {
+		}
 		rob.shutDown();
-		
+
 	}
 
 	private void setup() throws Exception {
-		driveDirect(100,100);
+		loop();
+
 	}
-	
-	private boolean loop() throws Exception{
-		System.out.println("LEFT SONAR: " + sonar.readSonar("left"));
-		Thread.sleep(1000);
-		System.out.println("RIGHT SONAR: " + sonar.readSonar("right"));
-		System.out.println("CENTER SONAR: " + sonar.readSonar("center"));
-		
+
+	private boolean loop() throws Exception {
+		driveDirect(100, 100);
 		return true;
 	}
 
